@@ -90,8 +90,8 @@ async function password_reset_link(req, res) {
       }).save();
     }
 
-    const link = `${process.env.PORT}/password-reset/${user._id}/${token.token}/click the link to reset the password ${Base_Url}/${user._id}/${token.token}`;
-    // const link = `${RenderBase/user._id/token.token/ Base_Url}`;
+    // const link = `${process.env.PORT}/password-reset/${user._id}/${token.token}/click the link to reset the password ${Base_Url}/${user._id}/${token.token}`;
+    const link = `${Base_Url}/${user._id}/${token.token}`;
     await sendEmail(user.email, "Password reset", link);
 
     res.send("password reset link sent to your email account");
